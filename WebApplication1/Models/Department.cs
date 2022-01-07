@@ -9,6 +9,7 @@
 
 namespace WebApplication1.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -25,10 +26,13 @@ namespace WebApplication1.Models
         public decimal Budget { get; set; }
         public System.DateTime StartDate { get; set; }
         public Nullable<int> InstructorID { get; set; }
+        [JsonIgnore]
         public byte[] RowVersion { get; set; }
     
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Course> Course { get; set; }
+        [JsonIgnore]
         public virtual Person Person { get; set; }
     }
 }

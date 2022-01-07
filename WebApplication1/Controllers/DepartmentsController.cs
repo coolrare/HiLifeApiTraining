@@ -39,6 +39,14 @@ namespace WebApplication1.Controllers
             return db.GetDepartmentWithCourses().AsQueryable();
         }
 
+        [Route("~/api/Departments/{id}/Courses")]
+        public IQueryable<Course> GetDepartmentCourses(int id)
+        {
+            db.Configuration.LazyLoadingEnabled = true;
+
+            return db.Department.Find(id).Course.AsQueryable();
+        }
+
         // GET: api/Departments/5
         [ResponseType(typeof(Department))]
         public IHttpActionResult GetDepartment(int id)

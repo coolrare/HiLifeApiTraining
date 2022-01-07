@@ -9,6 +9,7 @@
 
 namespace WebApplication1.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -26,10 +27,13 @@ namespace WebApplication1.Models
         public int Credits { get; set; }
         public int DepartmentID { get; set; }
     
+        [JsonIgnore]
         public virtual Department Department { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<Enrollment> Enrollment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<Person> Person { get; set; }
     }
 }
